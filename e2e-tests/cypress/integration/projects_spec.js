@@ -31,7 +31,7 @@ describe('Projects Tests', () => {
     cy.intercept('GET', '/app/projects').as('getProjects')
     cy.intercept('GET', '/api/icons/customIconCss').as('getProjectsCustomIcons')
     cy.intercept('GET', '/app/userInfo').as('getUserInfo')
-    cy.intercept('/admin/projects/proj1/users/root@skills.org/roles').as('getRolesForRoot');
+    cy.intercept('/admin/projects/proj1/users/root@skills.org/roles/*').as('getRolesForRoot');
   });
 
   it('Create new projects', function () {
@@ -457,7 +457,7 @@ describe('Projects Tests', () => {
 
     cy.intercept('PUT', '/admin/projects/proj1/users/root@skills.org/roles/ROLE_PROJECT_ADMIN').as('addAdmin');
 
-    cy.intercept('POST',  'suggestDashboardUsers').as('suggest');
+    cy.intercept('POST',  '**/suggestDashboardUsers*').as('suggest');
     cy.intercept('GET', '/app/userInfo').as('loadUserInfo');
     cy.intercept('GET', '/admin/projects/proj1').as('loadProject');
 
@@ -487,7 +487,7 @@ describe('Projects Tests', () => {
 
     cy.intercept('PUT', '/admin/projects/proj1/users/root@skills.org/roles/ROLE_PROJECT_ADMIN').as('addAdmin');
 
-    cy.intercept('POST',  'suggestDashboardUsers').as('suggest');
+    cy.intercept('POST',  '**/suggestDashboardUsers*').as('suggest');
     cy.intercept('GET', '/app/userInfo').as('loadUserInfo');
     cy.intercept('GET', '/admin/projects/proj1').as('loadProject');
 
@@ -526,7 +526,7 @@ describe('Projects Tests', () => {
 
     cy.intercept('PUT', '/admin/projects/proj1/users/root@skills.org/roles/ROLE_PROJECT_ADMIN').as('addAdmin');
 
-    cy.intercept('POST',  'suggestDashboardUsers').as('suggest');
+    cy.intercept('POST',  '**/suggestDashboardUsers*').as('suggest');
     cy.intercept('GET', '/app/userInfo').as('loadUserInfo');
     cy.intercept('GET', '/admin/projects/proj1').as('loadProject');
 
