@@ -254,7 +254,8 @@ limitations under the License.
       },
       approve() {
         this.table.options.busy = true;
-        const idsToApprove = this.table.items.filter((item) => item.selected).map((item) => item.id);
+        const selected = this.table.items.filter((item) => item.selected);
+        const idsToApprove = selected.map((item) => item.id);
         SelfReportService.approve(this.projectId, idsToApprove)
           .then(() => {
             this.loadApprovals();
@@ -263,7 +264,8 @@ limitations under the License.
       },
       doReject() {
         this.table.options.busy = true;
-        const ids = this.table.items.filter((item) => item.selected).map((item) => item.id);
+        const selected = this.table.items.filter((item) => item.selected);
+        const ids = selected.map((item) => item.id);
         SelfReportService.reject(this.projectId, ids, this.reject.rejectMsg)
           .then(() => {
             this.loadApprovals();
