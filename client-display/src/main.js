@@ -25,6 +25,7 @@ import {
     BadgePlugin,
     ProgressPlugin,
     SpinnerPlugin,
+    TooltipPlugin,
 } from 'bootstrap-vue';
 import marked from 'marked';
 import FiltersPlugin from '@/common-components/filter/FiltersPlugin';
@@ -46,6 +47,7 @@ Vue.use(TablePlugin);
 Vue.use(BadgePlugin);
 Vue.use(ProgressPlugin);
 Vue.use(SpinnerPlugin);
+Vue.use(TooltipPlugin);
 Vue.use(FiltersPlugin);
 
 require('@/common/softwareVersion/softwareVersionInterceptor');
