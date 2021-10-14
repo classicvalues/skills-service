@@ -253,7 +253,7 @@ class GlobalBadgesService {
 
     @Transactional(readOnly = true)
     boolean isSkillUsedInGlobalBadge(String projectId, String skillId) {
-        SkillDef skillDef = skillDefRepo.findByProjectIdAndSkillIdAndType(projectId, skillId, SkillDef.ContainerType.Skill)
+        SkillDef skillDef = skillDefRepo.findByProjectIdAndSkillIdAndTypeIn(projectId, skillId, [SkillDef.ContainerType.Skill, SkillDef.ContainerType.SkillsGroup])
         assert skillDef, "Skill [${skillId}] for project [${projectId}] does not exist"
         return isSkillUsedInGlobalBadge(skillDef)
     }
